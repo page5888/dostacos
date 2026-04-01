@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Dos Tacos | 花蓮道地墨西哥餐廳 - 炸冰淇淋、塔可、捲餅</title>
+    <meta name="description" content="Dos Tacos 是花蓮最道地的墨西哥餐廳，提供正宗塔可、捲餅、炸冰淇淋等美食。評分 4.6 星，位於花蓮市復興街，提供英文菜單與服務。" />
+    <meta name="keywords" content="花蓮墨西哥餐廳, 塔可, 捲餅, 炸冰淇淋, Dos Tacos, 花蓮美食, 墨西哥料理" />
+    <meta name="author" content="Dos Tacos" />
+    
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="Dos Tacos | 花蓮道地墨西哥餐廳" />
+    <meta property="og:description" content="享受正宗的墨西哥美食體驗。特色炸冰淇淋、新鮮塔可、手工捲餅，4.6 星評分，花蓮在地必吃。" />
+    <meta property="og:type" content="business.business" />
+    <meta property="og:url" content="https://dos-tacos.manus.space" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1200&h=630&fit=crop" />
+    
+    <!-- JSON-LD Structured Data for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Dos Tacos",
+      "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800",
+      "description": "花蓮最道地的墨西哥餐廳，提供正宗塔可、捲餅、炸冰淇淋等特色美食。",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 92號, Fuxing St",
+        "addressLocality": "Hualien City",
+        "addressRegion": "Hualien County",
+        "postalCode": "970",
+        "addressCountry": "TW"
+      },
+      "telephone": "+886-3-831-1733",
+      "url": "https://dos-tacos.manus.space",
+      "priceRange": "NT$400–600",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "ratingCount": "1234"
+      },
+      "servesCuisine": "Mexican",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "13:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "17:30",
+          "closes": "22:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/dostacoshualien",
+        "https://maps.app.goo.gl/1bf1n8Puc2zWxFrf9"
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.85) 0%, rgba(184, 134, 11, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1600&h=900&fit=crop') center/cover;
+            background-attachment: fixed;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 165, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 40px 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
+        }
+        
+        section {
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #8B4513;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B35, #F7931E);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .about-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.3rem;
+            color: #8B4513;
+            margin-bottom: 10px;
+        }
+        
+        .service-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f9f9f9;
+            border-left: 4px solid #FF6B35;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background: #fff5f0;
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.1);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #8B4513;
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-question::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 12px;
+            transition: transform 0.3s ease;
+            color: #FF6B35;
+        }
+        
+        .faq-item.active .faq-question::before {
+            transform: rotate(90deg);
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #FFD700;
+        }
+        
+        .contact-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .contact-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            color: #FFD700;
+        }
+        
+        .contact-value {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .contact-value a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-value a:hover {
+            opacity: 0.8;
+        }
+        
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.95rem;
+        }
+        
+        footer a {
+            color: #FF6B35;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Accessibility */
+        a:focus, button:focus {
+            outline: 2px solid #FF6B35;
+            outline-offset: 2px;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #8B4513;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FF6B35;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Dos Tacos</div>
+            <ul>
+                <li><a href="#about">關於我們</a></li>
+                <li><a href="#services">特色美食</a></li>
+                <li><a href="#faq">常見問題</a></li>
+                <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Dos Tacos</h1>
+                <p class="subtitle">花蓮最道地的墨西哥餐廳</p>
+                <p style="font-size: 1.1rem; margin-bottom: 40px; opacity: 0.95;">正宗塔可、手工捲餅、炸冰淇淋 — 品味道地的墨西哥風味</p>
+                <a href="#contact" class="cta-button">立即訂位</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" style="background: #fff;">
+            <div class="container">
+                <h2 class="section-title">關於 Dos Tacos</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Dos Tacos 是花蓮最具特色的墨西哥餐廳，致力於為您呈現最道地的墨西哥美食體驗。我們採用新鮮食材，精心烹飪每一道菜餚，從經典的塔可、香濃的捲餅，到獨特的炸冰淇淋，每一口都能感受到墨西哥的熱情與風味。</p>
+                        <p style="margin-top: 20px;">我們的廚師團隊擁有豐富的墨西哥烹飪經驗，致力於創造一個溫暖、友善的用餐環境。無論您是美食愛好者還是初次嚐試墨西哥料理，Dos Tacos 都能為您帶來難忘的用餐體驗。</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&h=600&fit=crop" alt="Dos Tacos 餐廳內部環境" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" style="background: linear-gradient(135deg, #f9f5f0 0%, #fff5f0 100%);">
+            <div class="container">
+                <h2 class="section-title">特色美食</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&h=300&fit=crop" alt="塔可 - 正宗墨西哥街頭美食" />
+                        </div>
+                        <div class="service-content">
+                            <h3>塔可 (Tacos)</h3>
+                            <p>選用新鮮食材，牛肉、豬肉、雞肉或素食選項，搭配特製醬料與新鮮蔬菜。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&h=300&fit=crop" alt="捲餅 - 手工製作的墨西哥捲餅" />
+                        </div>
+                        <div class="service-content">
+                            <h3>捲餅 (Burritos)</h3>
+                            <p>飽滿的手工捲餅，內含肉類、豆類、米飯與起司，淋上濃郁的醬料。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="炸冰淇淋 - Dos Tacos 的招牌甜點" />
+                        </div>
+                        <div class="service-content">
+                            <h3>炸冰淇淋 (Fried Ice Cream)</h3>
+                            <p>獨特的炸冰淇淋，外脆內軟，瑪奇朵、香草等多種風味，是必點的招牌甜點。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&h=300&fit=crop" alt="烤乾酪辣味玉米片 - Nachos" />
+                        </div>
+                        <div class="service-content">
+                            <h3>烤乾酪辣味玉米片 (Nachos)</h3>
+                            <p>脆香的玉米片搭配起司、肉類、豆類與新鮮莎莎醬，是完美的開胃菜。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="法士達 - 熱烤的墨西哥烤肉" />
+                        </div>
+                        <div class="service-content">
+                            <h3>法士達 (Fajitas)</h3>
+                            <p>熱烤的牛肉或雞肉，搭配洋蔥、彩椒，享受現烤的香氣與風味。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1606787620584-ffa08fbe3e8f?w=400&h=300&fit=crop" alt="莫吉托 - 清爽的墨西哥經典雞尾酒" />
+                        </div>
+                        <div class="service-content">
+                            <h3>莫吉托 (Mojito)</h3>
+                            <p>清爽的薄荷雞尾酒，搭配新鮮檸檬與冰塊，是夏日的完美飲品。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" style="background: #fff;">
+            <div class="container">
+                <h2 class="section-title">常見問題</h2>
+                <div class="faq-container">
+                    <div class="faq-item active">
+                        <div class="faq-question">Dos Tacos 的營業時間是？</div>
+                        <div class="faq-answer">
+                            <p>Dos Tacos 的營業時間為：</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>午餐時段：11:00 - 13:30</li>
+                                <li>晚餐時段：17:30 - 22:00</li>
+                            </ul>
+                            <p style="margin-top: 10px;">建議提前訂位以確保有位置。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Dos Tacos 有提供外帶和外送服務嗎？</div>
+                        <div class="faq-answer">
+                            <p>是的，Dos Tacos 提供外帶和外送服務。您可以：</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>直接來店外帶</li>
+                                <li>致電 +886 3 831 1733 預訂外帶</li>
+                                <li>透過外送平台訂購</li>
+                            </ul>
+                            <p style="margin-top: 10px;">外送時間約 30-45 分鐘，視訂單量而定。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Dos Tacos 適合素食者嗎？</div>
+                        <div class="faq-answer">
+                            <p>是的，Dos Tacos 提供多種素食選項：</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>素食塔可 - 使用豆類或蔬菜填充</li>
+                                <li>素食捲餅 - 豆類、米飯與起司</li>
+                                <li>蔬菜法士達 - 新鮮彩椒與洋蔥</li>
+                                <li>烤乾酪辣味玉米片 - 可選擇素食版本</li>
+                            </ul>
+                            <p style="margin-top: 10px;">我們的廚師團隊樂意根據您的需求調整菜餚。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="background: linear-gradient(135deg, #f9f5f0 0%, #fff5f0 100%);">
+            <div class="container">
+                <h2 class="section-title">聯絡我們</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>聯絡資訊</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">地址</div>
+                            <div class="contact-value">
+                                No. 92號, Fuxing St<br />
+                                Hualien City, Hualien County<br />
+                                Taiwan 970
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">電話</div>
+                            <div class="contact-value">
+                                <a href="tel:+886-3-831-1733">+886 3 831 1733</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">營業時間</div>
+                            <div class="contact-value">
+                                午餐：11:00 - 13:30<br />
+                                晚餐：17:30 - 22:00
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">價位</div>
+                            <div class="contact-value">
+                                NT$400–600 / 人
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">社群媒體</div>
+                            <div class="contact-value">
+                                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3635.5566123456!2d121.6072061!3d23.9811475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34689fc0210e4b2f%3A0x30549bdcef6989ec!2sDos%20Tacos!5e0!3m2!1szh-TW!2stw!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Dos Tacos 位置地圖"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Dos Tacos | Web Design by <a href="https://page5888.github.io/page5888/" target="_blank" rel="noopener noreferrer">花蓮瓊瑤打字行</a></p>
+    </footer>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Smooth Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
